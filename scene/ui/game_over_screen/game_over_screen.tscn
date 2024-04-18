@@ -1,0 +1,284 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqe7yio5xdct2"]
+
+[ext_resource type="Script" path="res://scene/ui/game_over_screen/game_over_screen.gd" id="1_mkwbe"]
+[ext_resource type="Texture2D" uid="uid://bf0srcetnxyn0" path="res://asset/ui/blue_panel.png" id="1_y34y2"]
+[ext_resource type="FontFile" uid="uid://do7qn87ixk2yo" path="res://asset/font/Kenney Pixel.ttf" id="2_6ta08"]
+[ext_resource type="Texture2D" uid="uid://cjf06jvj1t106" path="res://asset/ui/grey_panel.png" id="3_rx2t1"]
+[ext_resource type="Texture2D" uid="uid://bhtreokiygyou" path="res://asset/ui/blue_button00.png" id="4_7pdyh"]
+[ext_resource type="Texture2D" uid="uid://dgw7kiask1kcg" path="res://asset/ui/blue_button01.png" id="5_02e14"]
+
+[node name="GameOverScreen" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mkwbe")
+
+[node name="Background" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BasePanel" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -258.0
+offset_top = -155.0
+offset_right = 258.0
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_y34y2")
+
+[node name="Label" type="Label" parent="Background/BasePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -99.0
+offset_top = 2.0
+offset_right = 100.0
+offset_bottom = 49.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2_6ta08")
+theme_override_font_sizes/font_size = 42
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="TextureRect" parent="Background/BasePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -258.0
+offset_top = -114.0
+offset_right = 259.0
+offset_bottom = 154.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_rx2t1")
+
+[node name="Restart" type="TextureButton" parent="Background/BasePanel/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.0
+offset_top = 71.0
+offset_right = 9.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("4_7pdyh")
+texture_hover = ExtResource("5_02e14")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Background/BasePanel/Panel/Restart"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -11.5
+offset_right = 32.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_6ta08")
+theme_override_font_sizes/font_size = 36
+text = "RESTART"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resume3" type="TextureButton" parent="Background/BasePanel/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = 72.0
+offset_right = 205.0
+offset_bottom = 121.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("4_7pdyh")
+texture_hover = ExtResource("5_02e14")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Background/BasePanel/Panel/Resume3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -11.5
+offset_right = 32.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_6ta08")
+theme_override_font_sizes/font_size = 36
+text = "QUIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/BasePanel/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.0
+offset_top = -59.0
+offset_right = 204.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/BasePanel/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Background/BasePanel/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.901961, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_6ta08")
+theme_override_font_sizes/font_size = 32
+text = "Success Delivery"
+
+[node name="NumOfCorrect" type="Label" parent="Background/BasePanel/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.901961, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_6ta08")
+theme_override_font_sizes/font_size = 32
+text = "10 * 100"
+horizontal_alignment = 2
+
+[node name="TotalCorrect" type="Label" parent="Background/BasePanel/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.901961, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_6ta08")
+theme_override_font_sizes/font_size = 32
+text = "+1000"
+horizontal_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Background/BasePanel/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Background/BasePanel/Panel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.941176, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_6ta08")
+theme_override_font_sizes/font_size = 32
+text = "False Delivery"
+
+[node name="NumOfFalse" type="Label" parent="Background/BasePanel/Panel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.941176, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_6ta08")
+theme_override_font_sizes/font_size = 32
+text = "5 * -50"
+horizontal_alignment = 2
+
+[node name="TotalFalse" type="Label" parent="Background/BasePanel/Panel/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.980392, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_6ta08")
+theme_override_font_sizes/font_size = 32
+text = "-250"
+horizontal_alignment = 2
+
+[node name="HSeparator" type="HSeparator" parent="Background/BasePanel/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Background/BasePanel/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Background/BasePanel/Panel/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.941176, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_6ta08")
+theme_override_font_sizes/font_size = 32
+
+[node name="Label4" type="Label" parent="Background/BasePanel/Panel/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_6ta08")
+theme_override_font_sizes/font_size = 32
+text = "Total"
+horizontal_alignment = 2
+
+[node name="FinalScore" type="Label" parent="Background/BasePanel/Panel/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_6ta08")
+theme_override_font_sizes/font_size = 32
+text = "750"
+horizontal_alignment = 2
+
+[node name="IsNewHighscore" type="Label" parent="Background/BasePanel/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("2_6ta08")
+theme_override_font_sizes/font_size = 32
+text = "New Highscore!!!"
+horizontal_alignment = 2
+
+[connection signal="pressed" from="Background/BasePanel/Panel/Restart" to="." method="_on_restart_pressed"]

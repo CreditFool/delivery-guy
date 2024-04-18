@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://sa32oc2n6d0w"]
+
+[ext_resource type="Script" path="res://scene/off_screen_marker/off_screen_marker.gd" id="1_ry742"]
+[ext_resource type="Texture2D" uid="uid://14aevmgpqhlh" path="res://asset/property/face.png" id="2_mdjg1"]
+
+[node name="OffScreenMarker" type="Node2D"]
+z_index = 5
+script = ExtResource("1_ry742")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_mdjg1")
+hframes = 5

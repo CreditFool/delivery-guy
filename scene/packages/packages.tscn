@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://excqhbsq0y8"]
+
+[ext_resource type="Script" path="res://scene/packages/packages.gd" id="1_4cg8o"]
+[ext_resource type="Texture2D" uid="uid://bpcd552yvho8e" path="res://asset/property/box.png" id="1_e35bu"]
+[ext_resource type="Texture2D" uid="uid://tmgg2wm1rx3b" path="res://asset/sprite/inputs.png" id="2_yxudj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tvpfa"]
+size = Vector2(46, 43)
+
+[node name="Packages" type="Node2D"]
+z_index = -1
+script = ExtResource("1_4cg8o")
+
+[node name="Box" type="Sprite2D" parent="."]
+position = Vector2(8, 0)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_e35bu")
+hframes = 4
+vframes = 3
+frame = 9
+
+[node name="Box2" type="Sprite2D" parent="."]
+position = Vector2(23, -2)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_e35bu")
+hframes = 4
+vframes = 3
+frame = 11
+
+[node name="Box3" type="Sprite2D" parent="."]
+position = Vector2(10, -11)
+rotation = -0.349066
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_e35bu")
+hframes = 4
+vframes = 3
+frame = 10
+
+[node name="InputPrompt" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(20, -20)
+texture = ExtResource("2_yxudj")
+hframes = 34
+vframes = 24
+frame = 427
+
+[node name="ColorRect" type="ColorRect" parent="InputPrompt"]
+z_index = -1
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 3.0
+offset_bottom = 3.0
+color = Color(0.160784, 0.160784, 0.160784, 1)
+
+[node name="InteractionArea" type="Area2D" parent="."]
+position = Vector2(15, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(2, -10.5)
+shape = SubResource("RectangleShape2D_tvpfa")
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

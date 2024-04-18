@@ -1,0 +1,215 @@
+[gd_scene load_steps=11 format=3 uid="uid://bq1qcysr4gwvh"]
+
+[ext_resource type="Texture2D" uid="uid://bf0srcetnxyn0" path="res://asset/ui/blue_panel.png" id="1_yktb1"]
+[ext_resource type="Script" path="res://scene/ui/pause_menu/pause_menu.gd" id="1_yl30s"]
+[ext_resource type="FontFile" uid="uid://do7qn87ixk2yo" path="res://asset/font/Kenney Pixel.ttf" id="2_tgn5i"]
+[ext_resource type="Texture2D" uid="uid://cjf06jvj1t106" path="res://asset/ui/grey_panel.png" id="3_fqst5"]
+[ext_resource type="Texture2D" uid="uid://bm61a2a3i1wxu" path="res://asset/ui/red_button00.png" id="4_idwg6"]
+[ext_resource type="Texture2D" uid="uid://bhwundav75g5h" path="res://asset/ui/red_button01.png" id="5_kvsdg"]
+[ext_resource type="Texture2D" uid="uid://bhtreokiygyou" path="res://asset/ui/blue_button00.png" id="6_1ax27"]
+[ext_resource type="Texture2D" uid="uid://dgw7kiask1kcg" path="res://asset/ui/blue_button01.png" id="7_g7bid"]
+[ext_resource type="Texture2D" uid="uid://dxasschmd1ae5" path="res://asset/ui/pause-button.png" id="8_6bt2g"]
+[ext_resource type="Texture2D" uid="uid://cx2xw1logv0a8" path="res://asset/ui/pause-button-2.png" id="9_jihp5"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_yl30s")
+
+[node name="PauseButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -96.0
+offset_right = -32.0
+offset_bottom = 64.0
+grow_horizontal = 0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("8_6bt2g")
+texture_pressed = ExtResource("9_jihp5")
+
+[node name="Background" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BasePanel" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -112.0
+offset_right = 100.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yktb1")
+
+[node name="Label" type="Label" parent="Background/BasePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -99.0
+offset_top = 4.0
+offset_right = 100.0
+offset_bottom = 51.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2_tgn5i")
+theme_override_font_sizes/font_size = 42
+text = "PAUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="TextureRect" parent="Background/BasePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -64.0
+offset_right = 100.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_fqst5")
+
+[node name="Continue" type="TextureButton" parent="Background/BasePanel/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -67.5
+offset_right = 115.0
+offset_bottom = -22.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("5_kvsdg")
+texture_hover = ExtResource("4_idwg6")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Background/BasePanel/Panel/Continue"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -11.5
+offset_right = 32.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_tgn5i")
+theme_override_font_sizes/font_size = 36
+text = "CONTINUE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="TextureButton" parent="Background/BasePanel/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -19.5
+offset_right = 115.0
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("6_1ax27")
+texture_hover = ExtResource("7_g7bid")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Background/BasePanel/Panel/Restart"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -11.5
+offset_right = 32.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_tgn5i")
+theme_override_font_sizes/font_size = 36
+text = "RESTART"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resume3" type="TextureButton" parent="Background/BasePanel/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = 30.5
+offset_right = 115.0
+offset_bottom = 75.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("6_1ax27")
+texture_hover = ExtResource("7_g7bid")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Background/BasePanel/Panel/Resume3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -11.5
+offset_right = 32.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_tgn5i")
+theme_override_font_sizes/font_size = 36
+text = "QUIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="Background/BasePanel/Panel/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Background/BasePanel/Panel/Restart" to="." method="_on_restart_pressed"]

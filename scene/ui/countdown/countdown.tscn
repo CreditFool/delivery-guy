@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgh5dlycm2t7c"]
+
+[ext_resource type="Script" path="res://scene/ui/countdown/countdown.gd" id="1_hm8f5"]
+[ext_resource type="FontFile" uid="uid://do7qn87ixk2yo" path="res://asset/font/Kenney Pixel.ttf" id="1_i6vg5"]
+
+[node name="Countdown" type="Label"]
+process_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -18.0
+offset_right = 18.0
+offset_bottom = 36.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("1_i6vg5")
+theme_override_font_sizes/font_size = 64
+text = "60"
+script = ExtResource("1_hm8f5")
+
+[node name="CountdownTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 60.0
+one_shot = true
+
+[node name="LabelUpdater" type="Timer" parent="."]
+process_callback = 0
+autostart = true
+
+[connection signal="timeout" from="CountdownTimer" to="." method="_on_countdown_timer_timeout"]
+[connection signal="timeout" from="LabelUpdater" to="." method="_on_label_updater_timeout"]
