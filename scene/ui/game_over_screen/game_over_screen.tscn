@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqe7yio5xdct2"]
+[gd_scene load_steps=8 format=3 uid="uid://bqe7yio5xdct2"]
 
 [ext_resource type="Script" path="res://scene/ui/game_over_screen/game_over_screen.gd" id="1_mkwbe"]
 [ext_resource type="Texture2D" uid="uid://bf0srcetnxyn0" path="res://asset/ui/blue_panel.png" id="1_y34y2"]
@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://cjf06jvj1t106" path="res://asset/ui/grey_panel.png" id="3_rx2t1"]
 [ext_resource type="Texture2D" uid="uid://bhtreokiygyou" path="res://asset/ui/blue_button00.png" id="4_7pdyh"]
 [ext_resource type="Texture2D" uid="uid://dgw7kiask1kcg" path="res://asset/ui/blue_button01.png" id="5_02e14"]
+
+[sub_resource type="Gradient" id="Gradient_hbtvp"]
+offsets = PackedFloat32Array(0, 0.214286, 0.473214)
+colors = PackedColorArray(1, 0, 0, 1, 0, 0, 1, 1, 1, 0.941176, 0, 1)
 
 [node name="GameOverScreen" type="Control"]
 process_mode = 3
@@ -18,7 +22,6 @@ grow_vertical = 2
 script = ExtResource("1_mkwbe")
 
 [node name="Background" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -113,7 +116,7 @@ text = "RESTART"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Resume3" type="TextureButton" parent="Background/BasePanel/Panel"]
+[node name="Quit" type="TextureButton" parent="Background/BasePanel/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -131,7 +134,7 @@ texture_normal = ExtResource("4_7pdyh")
 texture_hover = ExtResource("5_02e14")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Background/BasePanel/Panel/Resume3"]
+[node name="Label" type="Label" parent="Background/BasePanel/Panel/Quit"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -281,4 +284,20 @@ theme_override_font_sizes/font_size = 32
 text = "New Highscore!!!"
 horizontal_alignment = 2
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background/BasePanel/Panel/VBoxContainer/IsNewHighscore"]
+position = Vector2(327.5, 11)
+amount = 16
+explosiveness = 0.5
+emission_shape = 3
+emission_rect_extents = Vector2(100, 1)
+direction = Vector2(0, -1)
+initial_velocity_min = 300.0
+initial_velocity_max = 500.0
+scale_amount_min = 3.0
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_hbtvp")
+hue_variation_min = -0.5
+hue_variation_max = 0.5
+
 [connection signal="pressed" from="Background/BasePanel/Panel/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Background/BasePanel/Panel/Quit" to="." method="_on_quit_pressed"]

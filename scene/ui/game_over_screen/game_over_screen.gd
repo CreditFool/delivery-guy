@@ -2,9 +2,7 @@ extends Control
 
 
 @export_file var current_level_scene: String
-@export_file var main_menu_scene: String
-
-@onready var game_over_panel := $Background
+@export_file var main_menu_scene: String = "res://scene/main_menu/main_menu.tscn"
 
 @onready var num_of_correct := $Background/BasePanel/Panel/VBoxContainer/HBoxContainer/NumOfCorrect
 @onready var total_correct := $Background/BasePanel/Panel/VBoxContainer/HBoxContainer/TotalCorrect
@@ -15,7 +13,7 @@ extends Control
 
 
 func _ready():
-	game_over_panel.hide()
+	hide()
 
 
 func show_game_over_panel(correct_delivery: int, false_delivery: int):
@@ -26,19 +24,25 @@ func show_game_over_panel(correct_delivery: int, false_delivery: int):
 	num_of_correct.text = str(correct_delivery) + "* 100"
 	total_correct.text = "+" + str(correct_score)
 	num_of_false.text = str(false_delivery) + "* -50"
-	total_false.text = "-" + str(false_score)
+	total_false.text = str(false_score)
 	final_score.text = str(total_score)
 
 	if (total_score > SavedData.current_highscore):
 		is_new_highscore.show()
 		SavedData.current_highscore = total_score
+		SavedData.write_data()
 	else:
 		is_new_highscore.hide()
 
 	get_tree().paused = true
-	game_over_panel.show()
+	show()
 
 
 func _on_restart_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_file(current_level_scene)
+
+
+func _on_quit_pressed():
+	get_tree().paused = false
+	get_tree().change_scene_to_file(main_menu_scene)

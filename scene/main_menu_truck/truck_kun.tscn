@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsm5ayguyd8do"]
+
+[ext_resource type="Script" path="res://scene/main_menu_truck/truck_kun.gd" id="1_3lqvi"]
+[ext_resource type="Texture2D" uid="uid://b1du4wu131yx3" path="res://asset/property/truckdelivery.png" id="1_jhc8p"]
+
+[sub_resource type="Gradient" id="Gradient_d4okn"]
+colors = PackedColorArray(0.497474, 0.497474, 0.497474, 1, 0.415686, 0.415686, 0.415686, 0)
+
+[node name="TruckKun" type="CharacterBody2D"]
+script = ExtResource("1_3lqvi")
+
+[node name="TruckKunSprite" type="Sprite2D" parent="."]
+self_modulate = Color(0.854902, 0.854902, 0.854902, 1)
+z_index = -1
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_jhc8p")
+
+[node name="SmokeParticle" type="CPUParticles2D" parent="TruckKunSprite"]
+z_index = -1
+position = Vector2(-19, 5.5)
+direction = Vector2(-1, 0)
+spread = 25.0
+gravity = Vector2(0, -100)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+scale_amount_min = 3.0
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_d4okn")

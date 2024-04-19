@@ -37,7 +37,6 @@ texture_normal = ExtResource("8_6bt2g")
 texture_pressed = ExtResource("9_jihp5")
 
 [node name="Background" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -171,7 +170,7 @@ text = "RESTART"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Resume3" type="TextureButton" parent="Background/BasePanel/Panel"]
+[node name="Quit" type="TextureButton" parent="Background/BasePanel/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -189,7 +188,7 @@ texture_normal = ExtResource("6_1ax27")
 texture_hover = ExtResource("7_g7bid")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Background/BasePanel/Panel/Resume3"]
+[node name="Label" type="Label" parent="Background/BasePanel/Panel/Quit"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -213,3 +212,4 @@ vertical_alignment = 1
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="Background/BasePanel/Panel/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Background/BasePanel/Panel/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Background/BasePanel/Panel/Quit" to="." method="_on_quit_pressed"]

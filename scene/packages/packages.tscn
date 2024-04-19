@@ -37,7 +37,6 @@ vframes = 3
 frame = 10
 
 [node name="InputPrompt" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(20, -20)
 texture = ExtResource("2_yxudj")
 hframes = 34
